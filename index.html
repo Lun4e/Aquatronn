@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AquaTron — Autonomous River Cleaning Vessel & AI Telemetry System</title>
+  <meta name="description" content="AquaTron: Inovasi Kapal Pembersih Sampah Otonom Terintegrasi YOLOv8 Edge AI, Telemetri IoT Real-time, dan AI Copilot untuk Sungai Berkelanjutan." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="assets/img/logo-mark.png" />
+</head>
+<body>
+
+  <!-- Ambient Background Orbs -->
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+  <div class="ambient-glow ambient-glow-3"></div>
+  <div class="bg-grid-overlay"></div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-logo-icon">
+          <img src="assets/img/logo-mark.png" alt="AquaTron Logo" class="brand-logo-img" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">AquaTron</span>
+          <span class="brand-badge" data-lang-en="Smart River ASV" data-lang-id="Kapal Otonom AI">Kapal Otonom AI</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#hero" class="nav-link" data-lang-en="Overview" data-lang-id="Beranda">Beranda</a>
+        <a href="#simulator" class="nav-link" data-lang-en="iPhone Simulator" data-lang-id="Uji Coba App">Uji Coba App</a>
+        <a href="#features" class="nav-link" data-lang-en="Features" data-lang-id="Fitur">Fitur</a>
+        <a href="#architecture" class="nav-link" data-lang-en="Telemetry & IoT" data-lang-id="Telemetri IoT">Telemetri IoT</a>
+        <a href="#copilot" class="nav-link" data-lang-en="AI Copilot" data-lang-id="AI Copilot">AI Copilot</a>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Language Switcher (Orion Style) -->
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="id" onclick="setLanguage('id')">ID</button>
+          <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">EN</button>
+        </div>
+        <a href="#simulator" class="nav-cta" data-lang-en="Test App Simulator" data-lang-id="Uji Coba Simulator">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          <span data-lang-en="Test App" data-lang-id="Uji Coba">Uji Coba</span>
+        </a>
+      </div>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Navigation -->
+  <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#hero" data-lang-en="Overview" data-lang-id="Beranda">Beranda</a>
+    <a href="#simulator" data-lang-en="iPhone Simulator" data-lang-id="Uji Coba App">Uji Coba App</a>
+    <a href="#features" data-lang-en="Features" data-lang-id="Fitur">Fitur</a>
+    <a href="#architecture" data-lang-en="Telemetry & IoT" data-lang-id="Telemetri IoT">Telemetri IoT</a>
+    <a href="#copilot" data-lang-en="AI Copilot" data-lang-id="AI Copilot">AI Copilot</a>
+    <div style="margin-top: 15px; display: flex; gap: 8px;">
+      <button class="mobile-lang-btn active" data-lang="id" onclick="setLanguage('id')">Indonesia</button>
+      <button class="mobile-lang-btn" data-lang="en" onclick="setLanguage('en')">English</button>
+    </div>
+  </div>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <header class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text-block">
+          <div class="hero-badge-wrap">
+            <div class="hero-pill">
+              <span class="pill-pulse"></span>
+              <span data-lang-en="⚡ Intelligent River Cleaning & Telemetry AI" data-lang-id="⚡ Inovasi Kapal Pembersih & Telemetri AI Sungai">⚡ Inovasi Kapal Pembersih & Telemetri AI Sungai</span>
+            </div>
+          </div>
+
+          <h1 class="hero-title">
+            <span data-lang-en="Reinventing River Cleaning with" data-lang-id="Revolusi Pembersihan Sungai dengan">Revolusi Pembersihan Sungai dengan</span>
+            <span class="text-gradient"> Autonomous ASV & Telemetry AI</span>
+          </h1>
+
+          <p class="hero-subtitle" data-lang-en="AquaTron combines an Autonomous Surface Vessel, YOLOv8 edge computer vision for trash identification, real-time multi-sensor water quality diagnostics, and intelligent AI Assistant to preserve water ecosystems." data-lang-id="AquaTron memadukan Kapal Otonom Pembersih Sungai, computer vision YOLOv8 untuk deteksi sampah akurat, telemetri sensor kualitas air real-time, dan AI Copilot terintegrasi SI-Sungai DLH.">
+            AquaTron memadukan Kapal Otonom Pembersih Sungai, computer vision YOLOv8 untuk deteksi sampah akurat, telemetri sensor kualitas air real-time, dan AI Copilot terintegrasi SI-Sungai DLH.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#simulator" class="btn-primary">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              <span data-lang-en="Interactive iPhone Simulator" data-lang-id="Uji Coba Simulator iPhone">Uji Coba Simulator iPhone</span>
+            </a>
+            <a href="#features" class="btn-secondary">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <span data-lang-en="Explore Features" data-lang-id="Eksplorasi Fitur">Eksplorasi Fitur</span>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3>130.6<span class="text-cyan"> kg</span></h3>
+              <p data-lang-en="Trash Collected Daily" data-lang-id="Sampah Terangkat/Hari">Sampah Terangkat/Hari</p>
+            </div>
+            <div class="stat-item">
+              <h3>92<span class="text-cyan">%</span></h3>
+              <p data-lang-en="Cleaning Efficiency" data-lang-id="Efisiensi Pembersihan">Efisiensi Pembersihan</p>
+            </div>
+            <div class="stat-item">
+              <h3>308<span class="text-cyan"> Wp</span></h3>
+              <p data-lang-en="Solar Eco-Charging" data-lang-id="Solar Charging Mandiri">Solar Charging Mandiri</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Realistic Hero iPhone 16 Pro Frame -->
+          <div class="hero-iphone-frame">
+            <!-- Hardware Buttons -->
+            <div class="hero-btn-action"></div>
+            <div class="hero-btn-vol-up"></div>
+            <div class="hero-btn-vol-down"></div>
+            <div class="hero-btn-power"></div>
+
+            <div class="hero-iphone-screen">
+              <!-- Compact Dynamic Island -->
+              <div class="hero-dynamic-island">
+                <div class="island-camera-dot"></div>
+                <div class="island-sensor-dot"></div>
+              </div>
+
+              <!-- iOS Status Bar -->
+              <div class="hero-status-bar">
+                <span class="status-time">09:41</span>
+                <div class="status-icons">
+                  <svg width="13" height="10" viewBox="0 0 15 11" fill="currentColor">
+                    <rect x="0" y="7" width="2.5" height="4" rx="0.5"></rect>
+                    <rect x="4" y="5" width="2.5" height="6" rx="0.5"></rect>
+                    <rect x="8" y="2.5" width="2.5" height="8.5" rx="0.5"></rect>
+                    <rect x="12" y="0" width="2.5" height="11" rx="0.5"></rect>
+                  </svg>
+                  <svg width="13" height="10" viewBox="0 0 14 11" fill="currentColor">
+                    <path d="M7 2.5C4.8 2.5 2.8 3.4 1.4 4.8L0 3.4C1.8 1.6 4.3 0.5 7 0.5C9.7 0.5 12.2 1.6 14 3.4L12.6 4.8C11.2 3.4 9.2 2.5 7 2.5ZM7 6.5C5.9 6.5 4.9 7 4.2 7.7L2.8 6.3C3.9 5.2 5.4 4.5 7 4.5C8.6 4.5 10.1 5.2 11.2 6.3L9.8 7.7C9.1 7 8.1 6.5 7 6.5ZM7 10.5C6.4 10.5 6 10.1 6 9.5C6 8.9 6.4 8.5 7 8.5C7.6 8.5 8 8.9 8 9.5C8 10.1 7.6 10.5 7 10.5Z"></path>
+                  </svg>
+                  <svg width="18" height="10" viewBox="0 0 22 11" fill="none" stroke="currentColor">
+                    <rect x="0.5" y="0.5" width="18" height="10" rx="2.5"></rect>
+                    <rect x="2" y="2" width="13" height="7" rx="1.5" fill="currentColor"></rect>
+                    <path d="M20 3.5V7.5" stroke-linecap="round"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Screen Viewport Image -->
+              <div class="hero-screen-viewport">
+                <img src="assets/img/home-v2.png" alt="AquaTron Telemetry App Preview" class="hero-screen-img" />
+              </div>
+
+              <!-- Home Indicator -->
+              <div class="hero-home-indicator"></div>
+            </div>
+          </div>
+
+          <!-- Floating Badges -->
+          <div class="float-badge float-badge-1">
+            <div class="float-badge-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <div>
+              <div class="float-badge-title" data-lang-en="Real-time Telemetry" data-lang-id="Telemetri Real-time">Telemetri Real-time</div>
+              <div class="float-badge-desc" data-lang-en="GPS, IoT & LiFePO4 84%" data-lang-id="GPS, IoT & Baterai 84%">GPS, IoT & Baterai 84%</div>
+            </div>
+          </div>
+
+          <div class="float-badge float-badge-2">
+            <div class="float-badge-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            </div>
+            <div>
+              <div class="float-badge-title" data-lang-en="YOLOv8 Edge AI" data-lang-id="Deteksi AI YOLOv8">Deteksi AI YOLOv8</div>
+              <div class="float-badge-desc" data-lang-en="Plastic 85% & Debris" data-lang-id="Deteksi Sampah Plastik">Deteksi Sampah Plastik</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== SECTION: SLIDE KHUSUS UJI COBA (FRAME IPHONE) ==================== -->
+  <section class="simulator-section" id="simulator">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="dot"></span>
+          <span data-lang-en="Interactive Experience" data-lang-id="Pengalaman Interaktif">Pengalaman Interaktif</span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang-en="Test Drive the" data-lang-id="Uji Coba Langsung Aplikasi">Uji Coba Langsung Aplikasi</span>
+          <span class="text-gradient"> AquaTron Mobile</span>
+        </h2>
+        <p class="section-desc" data-lang-en="Experience the real prototype on our pixel-perfect iPhone 16 Pro simulator. Tap directly on buttons (AI Assistant, Vessel Status, Waypoint Map, Camera, etc.) to navigate seamlessly." data-lang-id="Gunakan simulator iPhone 16 Pro yang telah dipresisikan. Klik langsung tombol di layar (AI Assistent, Detail Status Kapal, Peta, Kamera AI, Bottom Nav) untuk navigasi interaktif yang saling terhubung.">
+          Gunakan simulator iPhone 16 Pro yang telah dipresisikan. Klik langsung tombol di layar (AI Assistent, Detail Status Kapal, Peta, Kamera AI, Bottom Nav) untuk navigasi interaktif yang saling terhubung.
+        </p>
+      </div>
+
+      <div class="simulator-wrapper">
+        <!-- LEFT: Realistic iPhone 16 Pro Device Frame -->
+        <div class="phone-showcase-container">
+          <div class="iphone-16-frame">
+            <!-- Hardware Buttons -->
+            <div class="iphone-button-action"></div>
+            <div class="iphone-button-vol-up"></div>
+            <div class="iphone-button-vol-down"></div>
+            <div class="iphone-button-power"></div>
+
+            <div class="iphone-screen">
+              <!-- Compact Dynamic Island (Bisa diklik) -->
+              <div class="iphone-dynamic-island" id="dynamicIsland" title="Klik Dynamic Island untuk status kapal">
+                <div class="island-camera-dot"></div>
+                <div class="island-sensor-dot"></div>
+                <div class="island-content-expanded">
+                  <span style="color:#00f0ff; font-weight:700;">AquaTron #01</span>
+                  <span id="islandStatusText" style="font-size:0.68rem; color:#94a3b8;">Patroli Aktif • 3.2 km/h</span>
+                  <span style="color:#10b981; font-weight:700;">84% ⚡</span>
+                </div>
+              </div>
+
+              <!-- iPhone Status Bar -->
+              <div class="iphone-status-bar" id="iphoneStatusBar">
+                <span class="status-time">09:41</span>
+                <div class="status-icons">
+                  <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor">
+                    <rect x="0" y="7" width="2.5" height="4" rx="0.5"></rect>
+                    <rect x="4" y="5" width="2.5" height="6" rx="0.5"></rect>
+                    <rect x="8" y="2.5" width="2.5" height="8.5" rx="0.5"></rect>
+                    <rect x="12" y="0" width="2.5" height="11" rx="0.5"></rect>
+                  </svg>
+                  <svg width="14" height="11" viewBox="0 0 14 11" fill="currentColor">
+                    <path d="M7 2.5C4.8 2.5 2.8 3.4 1.4 4.8L0 3.4C1.8 1.6 4.3 0.5 7 0.5C9.7 0.5 12.2 1.6 14 3.4L12.6 4.8C11.2 3.4 9.2 2.5 7 2.5ZM7 10.5C6.4 10.5 6 10.1 6 9.5C6 8.9 6.4 8.5 7 8.5C7.6 8.5 8 8.9 8 9.5C8 10.1 7.6 10.5 7 10.5Z"></path>
+                  </svg>
+                  <svg width="22" height="11" viewBox="0 0 22 11" fill="none" stroke="currentColor">
+                    <rect x="0.5" y="0.5" width="18" height="10" rx="2.5"></rect>
+                    <rect x="2" y="2" width="13" height="7" rx="1.5" fill="currentColor"></rect>
+                    <path d="M20 3.5V7.5" stroke-linecap="round"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Viewport with 8 Pixel-Perfect Normalized Slides -->
+              <div class="iphone-screen-viewport">
+                <!-- Slide 0: Home Dashboard -->
+                <div class="iphone-slide active" data-index="0">
+                  <div class="iphone-slide-img-wrapper">
+                    <img src="assets/img/home-v2.png" alt="Home Screen" class="iphone-slide-img" />
+                    <!-- HOTSPOTS: Home Screen -->
+                    <div class="hotspot-layer">
+                      <!-- AI Assistent Button di pojok kanan atas -->
+                      <div class="app-hotspot hotspot-home-ai" onclick="goToScreen(5)" data-hint="✨ Klik: Buka AI Assistent"></div>
+                      <!-- Detail Status Kapal Button di dalam card biru -->
+                      <div class="app-hotspot hotspot-home-status" onclick="goToScreen(1)" data-hint="🔍 Klik: Detail Status Kapal"></div>
+                      <!-- Bottom Navigation Bar -->
+                      <div class="hotspot-bottom-nav-bar">
+                        <div class="hotspot-nav-item" onclick="goToScreen(0)" title="Home"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(2)" title="Map"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(3)" title="Camera"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(4)" title="Analytics"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(7)" title="Profile"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 1: Detail Status Kapal -->
+                <div class="iphone-slide" data-index="1">
+                  <div class="iphone-slide-img-wrapper">
+                    <img src="assets/img/status-v2.png" alt="Detail Status Kapal" class="iphone-slide-img" />
+                    <!-- HOTSPOTS: Status Screen -->
+                    <div class="hotspot-layer">
+                      <!-- Back button kiri atas -->
+                      <div class="app-hotspot hotspot-status-back" onclick="goToScreen(0)" data-hint="⬅️ Kembali ke Dashboard"></div>
+                      <!-- Tombol Peta di rute patroli -->
+                      <div class="app-hotspot hotspot-status-map" onclick="goToScreen(2)" data-hint="🗺️ Buka Peta Patroli"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 2: Peta Operasional (Map) -->
+                <div class="iphone-slide" data-index="2">
+                  <div class="iphone-slide-img-wrapper">
+                    <img src="assets/img/map-v2.png" alt="Peta Operasional" class="iphone-slide-img" />
+                    <!-- HOTSPOTS: Map Screen Bottom Nav -->
+                    <div class="hotspot-layer">
+                      <div class="hotspot-bottom-nav-bar">
+                        <div class="hotspot-nav-item" onclick="goToScreen(0)" title="Home"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(2)" title="Map"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(3)" title="Camera"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(4)" title="Analytics"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(7)" title="Profile"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 3: Camera AI -->
+                <div class="iphone-slide" data-index="3">
+                  <div class="iphone-slide-img-wrapper">
+                    <img src="assets/img/camera-v2.png" alt="Camera AI" class="iphone-slide-img" />
+                    <!-- Overlay Bounding Box Scanner -->
+                    <div class="ai-scanner-overlay" id="aiScannerOverlay">
+                      <div class="scanner-beam"></div>
+                      <div class="scanner-box scanner-box-1">
+                        <span class="scanner-label">Plastic 94%</span>
+                      </div>
+                      <div class="scanner-box scanner-box-2">
+                        <span class="scanner-label">Debris Target</span>
+                      </div>
+                    </div>
+                    <!-- HOTSPOTS: Camera Bottom Nav -->
+                    <div class="hotspot-layer">
+                      <div class="hotspot-bottom-nav-bar">
+                        <div class="hotspot-nav-item" onclick="goToScreen(0)" title="Home"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(2)" title="Map"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(3)" title="Camera"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(4)" title="Analytics"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(7)" title="Profile"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 4: AI Analytics & Kualitas Air -->
+                <div class="iphone-slide" data-index="4">
+                  <div class="iphone-slide-img-wrapper">
+                    <img src="assets/img/analytics-v2.png" alt="Analytics" class="iphone-slide-img" />
+                    <!-- HOTSPOTS: Analytics Bottom Nav -->
+                    <div class="hotspot-layer">
+                      <div class="hotspot-bottom-nav-bar">
+                        <div class="hotspot-nav-item" onclick="goToScreen(0)" title="Home"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(2)" title="Map"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(3)" title="Camera"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(4)" title="Analytics"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(7)" title="Profile"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 5: AquaTron AI Assistant -->
+                <div class="iphone-slide" data-index="5">
+                  <div class="iphone-slide-img-wrapper">
+                    <img src="assets/img/ai-v2.png" alt="AI Assistant" class="iphone-slide-img" />
+                    <!-- HOTSPOTS: AI Assistant Screen -->
+                    <div class="hotspot-layer">
+                      <!-- Back button kiri atas -->
+                      <div class="app-hotspot hotspot-ai-back" onclick="goToScreen(0)" data-hint="⬅️ Kembali ke Dashboard"></div>
+                      <!-- Chip Rekomendasi Cek Status Baterai -->
+                      <div class="app-hotspot hotspot-ai-chip-status" onclick="goToScreen(1)" data-hint="📊 Buka Status Baterai & Kapal"></div>
+                      <!-- Chip Rekomendasi Analisis Kualitas Air -->
+                      <div class="app-hotspot hotspot-ai-chip-water" onclick="goToScreen(4)" data-hint="💧 Buka Analisis Kualitas Air"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 6: Login & Autentikasi -->
+                <div class="iphone-slide" data-index="6">
+                  <div class="iphone-slide-img-wrapper">
+                    <img src="assets/img/auth-v2.png" alt="Login Register" class="iphone-slide-img" />
+                    <!-- HOTSPOTS: Auth Screen -->
+                    <div class="hotspot-layer">
+                      <!-- Tombol Masuk -->
+                      <div class="app-hotspot hotspot-auth-login" onclick="goToScreen(0)" data-hint="🔓 Masuk ke Dashboard"></div>
+                      <!-- Tombol Google -->
+                      <div class="app-hotspot hotspot-auth-google" onclick="goToScreen(0)" data-hint="🌐 Masuk dengan Google"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 7: Profile User -->
+                <div class="iphone-slide" data-index="7">
+                  <div class="iphone-slide-img-wrapper">
+                    <img src="assets/img/profile-v2.png" alt="Profile Screen" class="iphone-slide-img" />
+                    <!-- HOTSPOTS: Profile Screen -->
+                    <div class="hotspot-layer">
+                      <!-- Keluar sesi -->
+                      <div class="app-hotspot hotspot-profile-logout" onclick="goToScreen(6)" data-hint="🔒 Keluar ke Layar Login"></div>
+                      <!-- Bottom Nav -->
+                      <div class="hotspot-bottom-nav-bar">
+                        <div class="hotspot-nav-item" onclick="goToScreen(0)" title="Home"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(2)" title="Map"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(3)" title="Camera"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(4)" title="Analytics"></div>
+                        <div class="hotspot-nav-item" onclick="goToScreen(7)" title="Profile"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- iPhone Home Indicator Bar -->
+              <div class="iphone-home-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Interactive Controls & Explanation Panel -->
+        <div class="simulator-controls-panel">
+          <!-- Flow Navigation Card (Permintaan Khusus: Nyambung Antar Layar) -->
+          <div class="flow-shortcuts-card">
+            <div class="flow-title">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
+              <span data-lang-en="Connected Flow Shortcuts" data-lang-id="Alur Interaktif Terhubung">Alur Interaktif Terhubung</span>
+            </div>
+            <div class="flow-buttons-row">
+              <button class="btn-flow" id="flowBtnHome" onclick="goToScreen(0)">
+                <span>🏠 Dashboard</span>
+              </button>
+              <button class="btn-flow" id="flowBtnAi" onclick="goToScreen(5)">
+                <span>🤖 AI Assistent (Pojok Kanan)</span>
+              </button>
+              <button class="btn-flow" id="flowBtnStatus" onclick="goToScreen(1)">
+                <span>🚢 Detail Status Kapal</span>
+              </button>
+              <button class="btn-flow" id="flowBtnMap" onclick="goToScreen(2)">
+                <span>🗺️ Peta Patroli</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Screen Detailed Info Card -->
+          <div class="screen-info-card">
+            <span class="screen-meta-badge" id="screenMeta">Layar 01 / Dashboard Utama</span>
+            <h3 class="screen-title" id="screenTitle">Dashboard Utama & Telemetri Real-time</h3>
+            <p class="screen-description" id="screenDesc">
+              Pusat komando terintegrasi yang menampilkan status operasional kapal AquaTron #01 untuk User. Dilengkapi tombol "AI Assistent" di pojok kanan atas untuk membuka asisten cerdas, serta tombol "Detail Status Kapal" untuk melihat telemetri kelistrikan dan baterai LiFePO4 84% dengan solar charging 308 Wp.
+            </p>
+
+            <div class="screen-highlights" id="screenHighlights">
+              <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Interactive Actions inside the Card -->
+            <div class="simulator-interactive-actions">
+              <button class="btn-simulator-action" id="btnToggleScanner" onclick="toggleScannerEffect()">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M12 2v20"></path><circle cx="12" cy="12" r="7"></circle></svg>
+                <span data-lang-en="AI Vision Scanner Test" data-lang-id="Uji Scanner Kamera AI">Uji Scanner Kamera AI</span>
+              </button>
+
+              <button class="btn-simulator-action" id="btnSimulateSensors" onclick="toggleSensorSimulation()">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                <span data-lang-en="Simulate Live Telemetry" data-lang-id="Simulasikan Telemetri Live">Simulasikan Telemetri Live</span>
+              </button>
+
+              <button class="btn-simulator-action" onclick="goToScreen(5)">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                <span data-lang-en="Open AI Assistant" data-lang-id="Buka AI Assistant">Buka AI Assistant</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Thumbnails Selector Row with Next/Prev Arrows -->
+          <div class="simulator-thumbs-nav">
+            <div class="thumbs-header">
+              <span class="thumbs-title" data-lang-en="Select Prototype Slide" data-lang-id="Pilih Slide Prototipe">Pilih Slide Prototipe (8 Layar)</span>
+              <div class="nav-arrow-group">
+                <button class="btn-nav-arrow" onclick="prevScreen()" aria-label="Previous Slide">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="btn-nav-arrow" onclick="nextScreen()" aria-label="Next Slide">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="thumbs-list" id="thumbsList">
+              <!-- Dynamically rendered thumbnails -->
+            </div>
+
+            <!-- Auto-Tour Progress Bar -->
+            <div class="auto-play-bar">
+              <div class="auto-play-toggle" id="autoPlayToggle" onclick="toggleAutoPlay()">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span id="autoPlayText" data-lang-en="Auto-Tour" data-lang-id="Mulai Auto-Tour">Mulai Auto-Tour</span>
+              </div>
+              <div class="tour-progress-track">
+                <div class="tour-progress-fill" id="tourProgressFill"></div>
+              </div>
+              <span style="font-size:0.75rem; color:#64748b;" data-lang-en="Auto-cycles every 4.5s" data-lang-id="Berganti otomatis 4.5 detik">Berganti otomatis 4.5 detik</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION: KEY FEATURES ==================== -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="dot"></span>
+          <span data-lang-en="Core Capabilities" data-lang-id="Fitur Unggulan">Fitur Unggulan</span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang-en="Engineered for" data-lang-id="Didesain Khusus untuk">Didesain Khusus untuk</span>
+          <span class="text-gradient"> Ekosistem Sungai Pintar</span>
+        </h2>
+        <p class="section-desc" data-lang-en="Seamlessly unifying autonomous vessel robotics, real-time edge computer vision, and IoT environmental intelligence into an intuitive mobile interface." data-lang-id="Menyatukan teknologi robotika kapal otonom, computer vision mutakhir, dan telemetri lingkungan IoT ke dalam satu genggaman antarmuka mobile yang intuitif.">
+          Menyatukan teknologi robotika kapal otonom, computer vision mutakhir, dan telemetri lingkungan IoT ke dalam satu genggaman antarmuka mobile yang intuitif.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+          </div>
+          <h3 class="feature-title" data-lang-en="Autonomous Waypoint Navigation" data-lang-id="Navigasi Waypoint Otonom">Navigasi Waypoint Otonom</h3>
+          <p class="feature-desc" data-lang-en="High-precision GPS with autonomous trajectory planning allows the vessel to patrol cleaning sectors, avoid shallow sandbanks, and automatically dock when full." data-lang-id="Sistem autopilot berbasis GPS presisi tinggi memungkinkan kapal menyusuri rute patroli Sungai Musi secara mandiri, menghindari rintangan karam, dan merapat otomatis ke dermaga.">
+            Sistem autopilot berbasis GPS presisi tinggi memungkinkan kapal menyusuri rute patroli Sungai Musi secara mandiri, menghindari rintangan karam, dan merapat otomatis ke dermaga.
+          </p>
+          <div class="feature-tag-list">
+            <span class="feature-tag">GPS Waypoint</span>
+            <span class="feature-tag">Smart Docking</span>
+            <span class="feature-tag">Auto-Steer</span>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+          </div>
+          <h3 class="feature-title" data-lang-en="YOLOv8 Edge Computer Vision" data-lang-id="Computer Vision YOLOv8 Edge">Computer Vision YOLOv8 Edge</h3>
+          <p class="feature-desc" data-lang-en="Onboard neural network processing identifies and classifies floating river waste into plastic, metal, and organic debris in real-time with 92% precision." data-lang-id="Inferensi model deep learning YOLOv8 onboard mendeteksi dan mengklasifikasikan sampah terapung (botol plastik 85%, kaleng, organik) secara live tanpa bergantung pada koneksi internet penuh.">
+            Inferensi model deep learning YOLOv8 onboard mendeteksi dan mengklasifikasikan sampah terapung (botol plastik 85%, kaleng, organik) secara live tanpa bergantung pada koneksi internet penuh.
+          </p>
+          <div class="feature-tag-list">
+            <span class="feature-tag">YOLOv8 Model</span>
+            <span class="feature-tag">92% Precision</span>
+            <span class="feature-tag">Edge Computing</span>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h3 class="feature-title" data-lang-en="Real-time Water Quality Sensors" data-lang-id="Multi-Sensor Kualitas Air">Multi-Sensor Kualitas Air</h3>
+          <p class="feature-desc" data-lang-en="Continuous telemetry monitoring of 4 vital river metrics: pH level, Turbidity (NTU), Total Dissolved Solids (TDS ppm), and water temperature." data-lang-id="Pemantauan telemetri 4 parameter air secara terus-menerus: pH (7.2 Normal), Kekeruhan (18.4 NTU), TDS (142 ppm), dan suhu air (28.4 °C) sesuai standar baku mutu lingkungan.">
+            Pemantauan telemetri 4 parameter air secara terus-menerus: pH (7.2 Normal), Kekeruhan (18.4 NTU), TDS (142 ppm), dan suhu air (28.4 °C) sesuai standar baku mutu lingkungan.
+          </p>
+          <div class="feature-tag-list">
+            <span class="feature-tag">pH Sensor</span>
+            <span class="feature-tag">Turbidity NTU</span>
+            <span class="feature-tag">TDS ppm</span>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </div>
+          <h3 class="feature-title" data-lang-en="Solar-Powered Zero Emission" data-lang-id="Solar Charging Mandiri & Zero Emission">Solar Charging Mandiri & Zero Emission</h3>
+          <p class="feature-desc" data-lang-en="Equipped with a 308 Wp photovoltaic deck and durable LiFePO4 batteries, offering indefinite continuous patrol during daylight hours with zero carbon emissions." data-lang-id="Ditenagai kanopi panel surya 308 Wp dan baterai LiFePO4 berefisiensi tinggi. Mampu berpatroli seharian penuh dengan energi terbarukan tanpa emisi karbon dan tanpa mencemari air.">
+            Ditenagai kanopi panel surya 308 Wp dan baterai LiFePO4 berefisiensi tinggi. Mampu berpatroli seharian penuh dengan energi terbarukan tanpa emisi karbon dan tanpa mencemari air.
+          </p>
+          <div class="feature-tag-list">
+            <span class="feature-tag">308 Wp Solar</span>
+            <span class="feature-tag">LiFePO4 Pack</span>
+            <span class="feature-tag">Eco-Friendly</span>
+          </div>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </div>
+          <h3 class="feature-title" data-lang-en="Conversational AI Assistant" data-lang-id="AI Assistant Dialog Alami">AI Assistant Dialog Alami</h3>
+          <p class="feature-desc" data-lang-en="Ask questions naturally regarding ship status, trash payload fullness, or water safety recommendations. The bot synthesizes real-time telemetry instantly for User." data-lang-id="User dapat berkonsultasi langsung dengan AI Assistant: bertanya tentang sisa daya baterai, lokasi tumpukan sampah terpadat, hingga rekomendasi rute patroli optimal.">
+            User dapat berkonsultasi langsung dengan AI Assistant: bertanya tentang sisa daya baterai, lokasi tumpukan sampah terpadat, hingga rekomendasi rute patroli optimal.
+          </p>
+          <div class="feature-tag-list">
+            <span class="feature-tag">LLM Assistant</span>
+            <span class="feature-tag">Natural Query</span>
+            <span class="feature-tag">Instant Alerts</span>
+          </div>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"></path></svg>
+          </div>
+          <h3 class="feature-title" data-lang-en="SI-Sungai DLH Integration" data-lang-id="Integrasi SI-Sungai DLH">Integrasi SI-Sungai DLH</h3>
+          <p class="feature-desc" data-lang-en="Syncs seamlessly with Dinas Lingkungan Hidup municipal databases (v2.4.1), producing automated reports on daily waste tonnage and environmental recovery." data-lang-id="Terkoneksi langsung ke server Dinas Lingkungan Hidup (DLH) Kota Palembang (v2.4.1), menghasilkan laporan otomatis tonase sampah terangkat dan peta hotspot sungai tercemar.">
+            Terkoneksi langsung ke server Dinas Lingkungan Hidup (DLH) Kota Palembang (v2.4.1), menghasilkan laporan otomatis tonase sampah terangkat dan peta hotspot sungai tercemar.
+          </p>
+          <div class="feature-tag-list">
+            <span class="feature-tag">Cloud Sync</span>
+            <span class="feature-tag">DLH Standards</span>
+            <span class="feature-tag">Export Reports</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION: ARCHITECTURE & IoT TELEMETRY ==================== -->
+  <section class="architecture-section" id="architecture">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="dot"></span>
+          <span data-lang-en="System Architecture" data-lang-id="Arsitektur Sistem">Arsitektur Sistem</span>
+        </div>
+        <h2 class="section-title">
+          <span data-lang-en="End-to-End IoT & AI" data-lang-id="Alur Kerja Telemetri">Alur Kerja Telemetri</span>
+          <span class="text-gradient"> Data Pipeline</span>
+        </h2>
+        <p class="section-desc" data-lang-en="How real-time telemetry flows from the physical surface vessel in the river into the User's smartphone." data-lang-id="Bagaimana data telemetri mengalir secara real-time dari kapal di Sungai Musi hingga ke aplikasi smartphone User.">
+          Bagaimana data telemetri mengalir secara real-time dari kapal di Sungai Musi hingga ke aplikasi smartphone User.
+        </p>
+      </div>
+
+      <div class="arch-flow-grid">
+        <div class="arch-node">
+          <div class="arch-step-num">1</div>
+          <svg class="arch-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M2 20a6 6 0 0 0 10 0 6 6 0 0 0 10 0"></path>
+            <path d="M4 14l3.5-7.5a2 2 0 0 1 3.6 0L14 13"></path>
+          </svg>
+          <h4 class="arch-node-title" data-lang-en="Kapal Otonom ASV" data-lang-id="Kapal Otonom ASV">Kapal Otonom ASV</h4>
+          <p class="arch-node-desc" data-lang-en="Propulsion, conveyor picker, 308 Wp solar cells, and LiFePO4 battery array." data-lang-id="Sistem motor pendorong, konveyor pengangkat sampah, solar panel 308 Wp, dan baterai LiFePO4.">Sistem motor pendorong, konveyor pengangkat sampah, solar panel 308 Wp, dan baterai LiFePO4.</p>
+        </div>
+
+        <div class="arch-node">
+          <div class="arch-step-num">2</div>
+          <svg class="arch-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+          </svg>
+          <h4 class="arch-node-title" data-lang-en="Edge Computing & Sensors" data-lang-id="Edge AI & Sensor IoT">Edge AI & Sensor IoT</h4>
+          <p class="arch-node-desc" data-lang-en="Onboard microprocessor running YOLOv8 object detection & reading pH, TDS, Turbidity probes." data-lang-id="Prosesor onboard menjalankan inferensi YOLOv8 dan membaca probe sensor pH, kekeruhan, dan TDS.">Prosesor onboard menjalankan inferensi YOLOv8 dan membaca probe sensor pH, kekeruhan, dan TDS.</p>
+        </div>
+
+        <div class="arch-node">
+          <div class="arch-step-num">3</div>
+          <svg class="arch-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="2"></circle>
+            <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path>
+          </svg>
+          <h4 class="arch-node-title" data-lang-en="MQTT / 4G Telemetry" data-lang-id="Protokol Telemetri IoT">Protokol Telemetri IoT</h4>
+          <p class="arch-node-desc" data-lang-en="Ultra-low latency data transmission via 4G LTE/LoRa to cloud server under 250ms." data-lang-id="Pengiriman paket data telemetri via 4G LTE / LoRa ke server cloud dengan latensi di bawah 250 milidetik.">Pengiriman paket data telemetri via 4G LTE / LoRa ke server cloud dengan latensi di bawah 250 milidetik.</p>
+        </div>
+
+        <div class="arch-node">
+          <div class="arch-step-num">4</div>
+          <svg class="arch-node-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+          </svg>
+          <h4 class="arch-node-title" data-lang-en="AquaTron Mobile App" data-lang-id="Aplikasi AquaTron Mobile">Aplikasi AquaTron Mobile</h4>
+          <p class="arch-node-desc" data-lang-en="User controls the vessel, views camera feeds, inspects analytics, and talks to AI Copilot." data-lang-id="User memantau kapal, mengontrol rute waypoint, melihat live camera AI, dan berdialog dengan AI Copilot.">User memantau kapal, mengontrol rute waypoint, melihat live camera AI, dan berdialog dengan AI Copilot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION: LIVE AI COPILOT INTERACTIVE DEMO ==================== -->
+  <section class="copilot-section" id="copilot">
+    <div class="container">
+      <div class="copilot-box">
+        <div class="copilot-info">
+          <div class="section-tag">
+            <span class="dot"></span>
+            <span data-lang-en="Intelligent Operations" data-lang-id="Asisten Operasional Pintar">Asisten Operasional Pintar</span>
+          </div>
+          <h3 data-lang-en="Talk to AquaTron AI Assistant" data-lang-id="Konsultasi Langsung dengan AquaTron AI">Konsultasi Langsung dengan AquaTron AI</h3>
+          <p data-lang-en="Experience how natural language questions simplify vessel telemetry monitoring in the field. Click on any recommended question below to see immediate answers for User." data-lang-id="Simulasikan bagaimana asisten AI menjawab kondisi teknis armada kapal otonom secara instan untuk User. Klik pertanyaan di bawah untuk mencoba jawaban cerdas:">
+            Simulasikan bagaimana asisten AI menjawab kondisi teknis armada kapal otonom secara instan untuk User. Klik pertanyaan di bawah untuk mencoba jawaban cerdas:
+          </p>
+
+          <div class="chat-prompt-suggestions">
+            <button class="prompt-btn" onclick="askCopilot('baterai')">⚡ Cek Daya & Baterai</button>
+            <button class="prompt-btn" onclick="askCopilot('sampah')">🗑️ Total Sampah Terangkat</button>
+            <button class="prompt-btn" onclick="askCopilot('air')">💧 Kualitas Air Sungai Musi</button>
+            <button class="prompt-btn" onclick="askCopilot('patroli')">🚢 Waypoint Patroli Aktif</button>
+          </div>
+        </div>
+
+        <div class="copilot-demo-chat" id="copilotChatBox">
+          <div class="chat-bubble bot">
+            <span data-lang-en="👋 Hello User! I am AquaTron AI. How can I assist with vessel #01 operations today?" data-lang-id="👋 Halo User! Saya AquaTron AI Assistant. Kapal AquaClean AI #01 sedang beroperasi aktif di sektor Jembatan Ampera - Seberang Ulu. Ada yang bisa saya bantu?">
+              👋 Halo User! Saya AquaTron AI Assistant. Kapal AquaClean AI #01 sedang beroperasi aktif di sektor Jembatan Ampera - Seberang Ulu. Ada yang bisa saya bantu?
+            </span>
+          </div>
+          <div class="chat-bubble user" data-lang-en="What is the operational status of AquaClean AI #01 in Musi River?" data-lang-id="Halo AquaTron AI, bagaimana status operasional AquaClean AI #01 saat ini di Sungai Musi?">
+            Halo AquaTron AI, bagaimana status operasional AquaClean AI #01 saat ini di Sungai Musi?
+          </div>
+          <div class="chat-bubble bot">
+            <b>Status AquaClean #01 (Mode Otonom):</b><br/>
+            • Baterai LiFePO4: <b>84%</b> (+308 Wp Solar)<br/>
+            • Kecepatan: <b>3.2 km/h</b> (Arus: 0.8 kn)<br/>
+            • Tangki Sampah: <b>62% (130.6 kg)</b><br/>
+            • pH Air: <b>7.2</b> (Optimal/Normal)<br/>
+            • Kekeruhan: <b>18 NTU</b> (Baku Mutu Aman &lt;25)
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER (Orion Style) ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-brand">
+            <div class="brand-logo-icon">
+              <img src="assets/img/logo-mark.png" alt="AquaTron Logo" class="brand-logo-img" />
+            </div>
+            <span class="brand-name">AquaTron</span>
+          </div>
+          <p data-lang-en="Pioneering autonomous river cleaning and real-time AI environmental telemetry for cleaner, healthier water ecosystems." data-lang-id="Pelopor kapal pembersih sungai otonom dan telemetri AI lingkungan untuk ekosistem perairan yang bersih dan berkelanjutan.">
+            Pelopor kapal pembersih sungai otonom dan telemetri AI lingkungan untuk ekosistem perairan yang bersih dan berkelanjutan.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-link-btn" aria-label="Github"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+            <a href="#" class="social-link-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+            <a href="#" class="social-link-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-lang-en="Navigation" data-lang-id="Navigasi">Navigasi</h4>
+          <ul>
+            <li><a href="#hero" data-lang-en="Overview" data-lang-id="Beranda">Beranda</a></li>
+            <li><a href="#simulator" data-lang-en="iPhone Simulator" data-lang-id="Uji Coba Simulator">Uji Coba Simulator</a></li>
+            <li><a href="#features" data-lang-en="Features" data-lang-id="Fitur">Fitur</a></li>
+            <li><a href="#architecture" data-lang-en="Telemetry IoT" data-lang-id="Telemetri IoT">Telemetri IoT</a></li>
+            <li><a href="#copilot" data-lang-en="AI Copilot" data-lang-id="AI Copilot">AI Copilot</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-lang-en="Prototype Screens" data-lang-id="Layar Prototipe">Layar Prototipe</h4>
+          <ul>
+            <li><a href="javascript:void(0)" onclick="goToScreen(0)">Home Dashboard</a></li>
+            <li><a href="javascript:void(0)" onclick="goToScreen(1)">Vessel Telemetry</a></li>
+            <li><a href="javascript:void(0)" onclick="goToScreen(2)">Patrol Map</a></li>
+            <li><a href="javascript:void(0)" onclick="goToScreen(3)">YOLOv8 AI Camera</a></li>
+            <li><a href="javascript:void(0)" onclick="goToScreen(4)">Water Analytics</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 data-lang-en="Platform & Specs" data-lang-id="Sistem & Spesifikasi">Sistem & Spesifikasi</h4>
+          <ul>
+            <li><a href="#features">308 Wp Solar Charging</a></li>
+            <li><a href="#features">YOLOv8 Edge Vision AI</a></li>
+            <li><a href="#features">Multi-Sensor Kualitas Air</a></li>
+            <li><a href="#features">SI-Sungai DLH Integration</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 AquaTron. <span data-lang-en="All rights reserved. Smart River ASV & Environmental Telemetry." data-lang-id="Hak Cipta Dilindungi. Sistem Telemetri & Kapal Otonom Pintar.">Hak Cipta Dilindungi. Sistem Telemetri & Kapal Otonom Pintar.</span></p>
+        <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
